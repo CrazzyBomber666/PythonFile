@@ -188,6 +188,7 @@ robot = Robot()
 # __ipow__(self, other)         -->     возведение в степень значения двух объектов         **=
 
 
+
 # robot1 = Robot()
 # robot1.name = '567'
 # print(robot, robot1)

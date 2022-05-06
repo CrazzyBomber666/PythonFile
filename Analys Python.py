@@ -187,8 +187,6 @@ robot = Robot()
 # __imod__(self, other)         -->     вычисление остатка значения двух объектов           %=
 # __ipow__(self, other)         -->     возведение в степень значения двух объектов         **=
 
-
-
 # robot1 = Robot()
 # robot1.name = '567'
 # print(robot, robot1)

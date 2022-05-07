@@ -103,47 +103,46 @@ elif response.status_code == 404:
 
 # my_car.start()
 # print('\nrpm:', my_car.engine_rpm)
-
+# # 
 # my_car.go()
 # print('\nrpm:', my_car.engine_rpm)
 # print('current speed:', my_car.current_speed)
-
-
-class Robot:
-
-    def __init__(self):
-        self.name = 'R2D2'
-
-    def hello(self):
-        print('Привет мир!')
-
-    def __str__(self):      #метод __str__ сработае тогда, когда хотим распечатать значения объекта
-        return self.name
-    
-    def __bool__(self):     #проверка на пустотсу или еще на что-нибудь
-        return self.name != ''
-
-    def __len__(self):      #вывод длины
-        return len(self.name)
-
-    def __eq__(self, other):    #сравнение двух объектов
-        return self.name == other.name
-
-    def __iadd__(self, other):  #складывание двух объектов
-        self.name += other.name
-        return self
-
-    def __del__(self):      #метод __del__ сработает тогда, когда программа закончится свое выполнение или объект будет равен None
-        print('Прощай объект...')
-
-robot = Robot()
-
+# 
+# class Robot:
+# 
+    # def __init__(self):
+        # self.name = 'R2D2'
+# 
+    # def hello(self):
+        # print('Привет мир!')
+# 
+    # def __str__(self):      #метод __str__ сработае тогда, когда хотим распечатать значения объекта
+        # return self.name
+    # 
+    # def __bool__(self):     #проверка на пустотсу или еще на что-нибудь
+        # return self.name != ''
+# 
+    # def __len__(self):      #вывод длины
+        # return len(self.name)
+# 
+    # def __eq__(self, other):    #сравнение двух объектов
+        # return self.name == other.name
+# 
+    # def __iadd__(self, other):  #складывание двух объектов
+        # self.name += other.name
+        # return self
+# 
+    # def __del__(self):      #метод __del__ сработает тогда, когда программа закончится свое выполнение или объект будет равен None
+        # print('Прощай объект...')
+# 
+# robot = Robot()
+# 
 # robot.temperature = 1       #Можно добавить атрибут к экземпляру, который нет в конструкторе
 # while robot.temperature < 10:
 #     robot.temperature *= 2
 # print(robot.temperature)
 # del robot.temperature       #Удаляет общедоступный, защищенный и приватный атрибут у экземпляра
-
+#
 # name_attribute = 'model'
 # if hasattr(robot, name_attribute):  #Проверка на существующий общедоступный или защищенный атрибут
 #     print(robot.model)
@@ -190,5 +189,45 @@ robot = Robot()
 # robot1 = Robot()
 # robot1.name = '567'
 # print(robot, robot1)
-# robot += robot1
+# robot += robot15
 # print(robot, robot1)
+
+
+# class Pet:
+#     legs = 4
+#     has_trail = True
+
+#     def inspect(self):
+#         print('Всего ног:', self.legs)
+#         print('Хвост присутствует - ', 'да' if self.has_trail else 'нет')
+
+# class Cat(Pet):
+    
+#     def sound(self):
+#         print('Мяу')
+
+# class Dog(Pet):
+
+#     def sound(self):
+#         print('Гав')
+
+# class Hamster(Pet):
+
+#     def sound(self):
+#         print('Ццццццц')
+
+# print('Котик')
+# my_pet = Cat()
+# my_pet.inspect()
+# my_pet.sound()
+# print('Собачка')
+# my_pet = Dog()
+# my_pet.inspect()
+# my_pet.sound()
+# print('Хомячок')
+# my_pet = Hamster()
+# my_pet.inspect()
+# my_pet.sound()
+
+print('Кузнецов' > 'Коверин')
+

@@ -749,6 +749,3 @@ elif response.status_code == 404:
 # for filename in zfile.namelist():                   # перебор всех файлов в архиве
 #     if file_name == filename:                       # Если название файла совпала с названием файла в архиве
 #         zfile.extract(filename)                     # тогда распакуем в этуже дерикторию 
-
-value = 'text'
-print(f'{0}', *value)

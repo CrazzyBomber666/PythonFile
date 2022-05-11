@@ -271,231 +271,484 @@ elif response.status_code == 404:
 #
 # Подвести итоги жизни за год: сколько было заработано денег, сколько сьедено еды, сколько куплено шуб.
 
-from random import randint
+# from random import randint
 
-class House:
+# class House:
+# 
+    # def __init__(self):
+        # self.__money = 100
+        # self.__food = 50
+        # self.__ashed = 0
+# 
+    # def _get_food(self):
+        # return self.__food
+# 
+    # def _get_money(self):
+        # return self.__money
+# 
+    # def _get_ashed(self):
+        # return self.__ashed
+# 
+    # def _set_food(self, count_food):
+        # self.__food += count_food
+# 
+    # def _set_money_after_buy(self, price):
+        # self.__money -= price
+# 
+    # def _set_money_after_work(self, price):
+        # self.__money += price
+# 
+    # def set_ashed(self):
+        # self.__ashed += 5
+# 
+    # def _set_ashed(self):
+        # self.__ashed = 0
+# 
+    # def __str__(self):
+        # return 'В доме денег: {}, еды: {}, грязи: {}'.format(*self.__dict__.values())
+# 
+# class Human:
+# 
+    # def __init__(self, house):
+        # self.__fullness = 30
+        # self.__happiness = 100
+        # self.__house = house
+# 
+    # def _get_fullness(self):
+        # return self.__fullness
+# 
+    # def _get_happiness(self):
+        # return self.__happiness
+# 
+    # def _get_house_food(self):
+        # return self.__house._get_food()
+# 
+    # def _get_house_money(self):
+        # return self.__house._get_money()
+# 
+    # def _get_house_ashed(self):
+        # return self.__house._get_ashed()
+# 
+    # def _set_house_ashed(self, name):
+        # self.__house._set_ashed()
+        # print('{} убрала квартиру'.format(name))
+# 
+    # def _set_house(self):
+        # self.__house._set_money_after_work(price=150)
+# 
+    # def _set_fullness_after_eat(self, name, fullness):
+        # if self.__fullness + fullness > 100:
+            # self.__fullness = 100
+        # else:
+            # self.__fullness += fullness
+            # self.__house._set_food(count_food=-fullness)
+        # print('{} покушал(а)'.format(name))
+# 
+    # def _set_fullness_after_other_act(self, fullness):
+        # self.__fullness -= fullness
+# 
+    # def _set_happiness(self, count_happiness):
+        # if self.__happiness + count_happiness > 100:
+            # self.__happiness = 100
+        # else:
+            # self.__happiness += count_happiness
+# 
+    # def _buy_products(self, name, price):
+        # if self._get_house_money() - price > 0:
+            # self.__house._set_money_after_buy(price)
+            # self.__house._set_food(price)
+            # print('{} сходила в магазин и купила продукты на сумму {}'.format(name, price))
+            # return True
+        # else:
+            # return False
+# 
+    # def __str__(self, name):
+        # return 'У {} степень сытости: {}, степень счастья: {}'.format(name, *self.__dict__.values())
+# 
+# class Husband(Human):
+# 
+    # def __init__(self, name, house):
+        # super().__init__(house)
+        # self.__name = name
+# 
+    # def __str__(self):
+        # return super().__str__(name=self.__name)
+# 
+    # def eat(self):
+        # fullness = randint(1, 30)
+        # if super()._get_house_food() - fullness < 0:
+            # print('{} не хватает еды'.format(self.__name))
+            # super()._set_happiness(count_happiness=-2)
+            # super()._set_fullness_after_other_act(fullness=10)
+        # else:
+            # super()._set_fullness_after_eat(name=self.__name, fullness=fullness)
+            # super()._set_happiness(count_happiness=-2)
+# 
+    # def play_game_WoT(self):
+        # super()._set_fullness_after_other_act(fullness=10)
+        # super()._set_happiness(count_happiness=20)
+        # print('{} поиграл в World Of Tanks'.format(self.__name))
+# 
+    # def go_work(self):
+        # super()._set_fullness_after_other_act(fullness=10)
+        # super()._set_house()
+        # super()._set_happiness(count_happiness=-10)
+        # print('{} сходил на работу и заработал 150 денег'.format(self.__name))
+# 
+    # def act(self):
+        # if super()._get_fullness() <= 0 or super()._get_happiness() <= 0:
+            # print('--'*10 + '{} умер!!!!'.format(self.__name))
+        # elif super()._get_house_money() < 60:
+            # self.go_work()
+        # elif super()._get_fullness() <= 30:
+            # self.eat()
+        # elif super()._get_happiness() <= 30:
+            # self.play_game_WoT()
+        # elif super()._get_house_money() <= 60:
+            # self.go_work()
+        # else:
+            # act = randint(1, 3)
+            # match act:
+                # case 1:
+                    # self.play_game_WoT()
+                # case 2:
+                    # self.eat()
+                # case 3:
+                    # self.go_work()
+# 
+# class Wife(Human):
+# 
+    # def __init__(self, name, house):
+        # super().__init__(house)
+        # self.__name = name
+# 
+    # def __str__(self):
+        # return super().__str__(name=self.__name)
+        # 
+    # def eat(self):
+        # fullness = randint(1, 30)
+        # if super()._get_house_food() - fullness < 0:
+            # print('{} не хватает еды'.format(self.__name))
+            # super()._set_happiness(count_happiness=-2)
+            # super()._set_fullness_after_other_act(fullness=10)
+        # else:
+            # super()._set_fullness_after_eat(name=self.__name, fullness=fullness)
+            # super()._set_happiness(count_happiness=-2)
+# 
+    # def buy_products(self):
+        # if super()._buy_products(name=self.__name, price=randint(30, 60)):
+            # super()._set_happiness(count_happiness=-10)
+            # super()._set_fullness_after_other_act(fullness=10)
+        # else:
+            # print('{} не хватило денег на продукты'.format(self.__name))
+            # super()._set_fullness_after_other_act(fullness=10)
+            # super()._set_happiness(count_happiness=-10)
+# 
+    # def buy_shuba(self):
+        # if super()._buy_products(name=self.__name, price=150):
+            # super()._set_happiness(count_happiness=60)
+            # super()._set_fullness_after_other_act(fullness=10)
+        # else:
+            # print('{} не хватило денег на шубу'.format(self.__name))
+            # super()._set_happiness(count_happiness=-10)
+            # super()._set_fullness_after_other_act(fullness=10)
+# 
+    # def do_out_in_home(self):
+        # super()._set_house_ashed(name=self.__name)
+        # super()._set_fullness_after_other_act(fullness=10)
+        # super()._set_happiness(count_happiness=-20)
+        # 
+    # def act(self):
+        # if super()._get_fullness() <= 0 or super()._get_happiness() <= 0:
+            # print('--'*10 + '{} умер!!!!'.format(self.__name))
+        # elif super()._get_house_food() <= 60:
+            # self.buy_products()
+        # elif super()._get_happiness() <= 30:
+            # self.buy_shuba()
+        # elif super()._get_fullness() <= 30:
+            # self.eat()
+        # elif super()._get_house_ashed() >= 80:
+            # self.do_out_in_home()
+        # else:
+            # act = randint(1, 3)
+            # match act:
+                # case 1:
+                    # self.buy_products()
+                # case 2:
+                    # self.buy_shuba()
+                # case 3:
+                    # self.do_out_in_home()
+            # pass
+# 
+# if __name__ == '__main__':
+    # home = House()
+    # maks = Husband(name='Макс', house=home)
+    # masha = Wife(name='Маша', house=home)
+    # print()
+    # print(maks)
+    # print(masha)
+    # print(home)
+# 
+    # year = 30
+    # for day in range(1, 365 * year + 1):
+        # print('-'*25 + str(day) + ' День' + str('-')*25)
+        # maks.act()
+        # masha.act()
+        # home.set_ashed()
+        # print(maks)
+        # print(masha)
+        # print(home)
+    # 
+# 
 
-    def __init__(self):
-        self.__money = 100
-        self.__food = 50
-        self.__ashed = 0
+# chr()     # Преобразование кода в символ
+# ord()     # Преобразование символа в код
+# hex()     # Преобразование кода в шестнадцатеричный код
 
-    def _get_food(self):
-        return self.__food
+# name_byte = b'\xd1\x84' хранение сырых байтов. Можно хранить состояние БД, символы, музыку и т.д.
+# байты можно работать, как со строковыми типы данных
+# Последовательность байта не изменяемая
 
-    def _get_money(self):
-        return self.__money
+# bytearray(b'hello')
+# ba[0] = 32 # код пробела
+# print(ba)
 
-    def _get_ashed(self):
-        return self.__ashed
+# bytearray('привет', encoding='utf-8') создать последовательность байт из юникодной строки.
+ 
+# utf-16 
+# cp866 DOSовская кодировка
 
-    def _set_food(self, count_food):
-        self.__food += count_food
+# name_byte = b'\xd1\x84'.decode(encoding='utf-8) декодировать кодировку.
 
-    def _set_money_after_buy(self, price):
-        self.__money -= price
+# from pprint import pprint
 
-    def _set_money_after_work(self, price):
-        self.__money += price
+# print()
+# file_name = 'byron' # - файл, который надо прочитать
+# file = open(file_name, mode='rb')   # mode - режим бинарного чтения. r - чтение, b - бинарное
+# file_content = file.read()       # прочитать файл
+# file.close()            # закрыть файл
+# pprint(file_content)    # английский текст можно не декодировать
+# pprint(file_content.decode('utf-8'))    # остальыне зяыки надо декодировать
 
-    def set_ashed(self):
-        self.__ashed += 5
 
-    def _set_ashed(self):
-        self.__ashed = 0
+# print()
+# file_name = 'byron'
+# file = open(file_name, mode='r')    #на linux можно не указывать бинарность. Все прочтется. Операционная система выберит свою кодировку.
+# file_content = file.read()
+# file.close()
+# pprint(file_content)
 
-    def __str__(self):
-        return 'В доме денег: {}, еды: {}, грязи: {}'.format(*self.__dict__.values())
 
-class Human:
+# print()
+# file_name = 'byron'
+# file = open(file_name, mode='r', encoding='utf-8')  # укажем сразу кодировку, которую надо перекодировать. 
+# file_content = file.read()
+# file.close()
+# pprint(file_content)
 
-    def __init__(self, house):
-        self.__fullness = 30
-        self.__happiness = 100
-        self.__house = house
 
-    def _get_fullness(self):
-        return self.__fullness
+# print()
+# file_name = 'byron_magic'
+# file = open(file_name, mode='w', encoding='utf-8')    # w - режим записи, символьная. Кодировка будет utf-8
+# file_content = 'Hello, world!\n\nПривет, мир!'
+# file.write(file_content)
+# file.close()
 
-    def _get_happiness(self):
-        return self.__happiness
+# file = open(file_name, mode='r', encoding='utf-8')
+# file_content = file.read()
+# file.close()
+# pprint(file_content)
 
-    def _get_house_food(self):
-        return self.__house._get_food()
 
-    def _get_house_money(self):
-        return self.__house._get_money()
+# print()
+# file_name = 'byron_magic'
+# file = open(file_name, mode='wb')    # w - режим бинарной записи
+# file_content = b'Hello, world!'     # можно бинарить только английский текст
+# file.write(file_content)
+# file.close()
 
-    def _get_house_ashed(self):
-        return self.__house._get_ashed()
+# file = open(file_name, mode='r', encoding='utf-8')
+# file_content = file.read()
+# file.close()
+# pprint(file_content)
 
-    def _set_house_ashed(self, name):
-        self.__house._set_ashed()
-        print('{} убрала квартиру'.format(name))
 
-    def _set_house(self):
-        self.__house._set_money_after_work(price=150)
+# print()
+# file_name = 'byron_magic'
+# file = open(file_name, mode='a', encoding='utf-8')    # a - тоже, что и режим w, только файл не обнуляет, а добавляет содержимое в конец строки
+                                                        # a - append(), как у список.
+# file_content = 'Hello, world!'
+# file.write(file_content)
+# file.close()
 
-    def _set_fullness_after_eat(self, name, fullness):
-        if self.__fullness + fullness > 100:
-            self.__fullness = 100
-        else:
-            self.__fullness += fullness
-            self.__house._set_food(count_food=-fullness)
-        print('{} покушал(а)'.format(name))
+# file = open(file_name, mode='r', encoding='utf-8')
+# file_content = file.read()
+# file.close()
+# pprint(file_content)
 
-    def _set_fullness_after_other_act(self, fullness):
-        self.__fullness -= fullness
 
-    def _set_happiness(self, count_happiness):
-        if self.__happiness + count_happiness > 100:
-            self.__happiness = 100
-        else:
-            self.__happiness += count_happiness
+# print()
+# file_name = 'byron_magic'       # открыть существующий файл, иначе ошибка
+# file = open(file_name, mode='r+', encoding='utf-8')    # r+ - режим чтение с записью
+# file_content = file.read()
+# file.write('\n я новая информация')
+# file.close()
 
-    def _buy_products(self, name, price):
-        if self._get_house_money() - price > 0:
-            self.__house._set_money_after_buy(price)
-            self.__house._set_food(price)
-            print('{} сходила в магазин и купила продукты на сумму {}'.format(name, price))
-            return True
-        else:
-            return False
+# file = open(file_name, mode='r', encoding='utf-8')
+# file_content = file.read()
+# file.close()
+# pprint(file_content)
+""" для режима w+ - создается пустой файл, если его нет, иначе обнуляет содержимое файла. 
+    для бинарных режимов открываются video, music, image.
+"""
 
-    def __str__(self, name):
-        return 'У {} степень сытости: {}, степень счастья: {}'.format(name, *self.__dict__.values())
 
-class Husband(Human):
+# print()
+# file_name = 'byron_magic'
+# file = open(file_name, mode='r', encoding='utf-8)
+# file_content = file.read(2)
+# pprint(file_content)
+# pprint(file.tell())         #указывает, сколько символов прочитано. Тут 2
 
-    def __init__(self, name, house):
-        super().__init__(house)
-        self.__name = name
+# file_content = file.read(39)    
+# pprint(file_content)
+# pprint(file.tell())         #тут 41
 
-    def __str__(self):
-        return super().__str__(name=self.__name)
+# file_content = file.read(1)    
+# pprint(file_content)
+# pprint(file.tell())         #а вот тут 43. Так как пошли русские символы, то они уже содержат по 2 байта за каждый символ
+#                             #и получается, что 41 + 2 = 43
 
-    def eat(self):
-        fullness = randint(1, 30)
-        if super()._get_house_food() - fullness < 0:
-            print('{} не хватает еды'.format(self.__name))
-            super()._set_happiness(count_happiness=-2)
-            super()._set_fullness_after_other_act(fullness=10)
-        else:
-            super()._set_fullness_after_eat(name=self.__name, fullness=fullness)
-            super()._set_happiness(count_happiness=-2)
+# file_content = file.read(1)    
+# pprint(file_content)
+# pprint(file.tell())         #а вот тут 44. Так как пробел умещается в 1 байт.
+# file.close()
 
-    def play_game_WoT(self):
-        super()._set_fullness_after_other_act(fullness=10)
-        super()._set_happiness(count_happiness=20)
-        print('{} поиграл в World Of Tanks'.format(self.__name))
 
-    def go_work(self):
-        super()._set_fullness_after_other_act(fullness=10)
-        super()._set_house()
-        super()._set_happiness(count_happiness=-10)
-        print('{} сходил на работу и заработал 150 денег'.format(self.__name))
+# import io
 
-    def act(self):
-        if super()._get_fullness() <= 0 or super()._get_happiness() <= 0:
-            print('--'*10 + '{} умер!!!!'.format(self.__name))
-        elif super()._get_house_money() < 60:
-            self.go_work()
-        elif super()._get_fullness() <= 30:
-            self.eat()
-        elif super()._get_happiness() <= 30:
-            self.play_game_WoT()
-        elif super()._get_house_money() <= 60:
-            self.go_work()
-        else:
-            act = randint(1, 3)
-            match act:
-                case 1:
-                    self.play_game_WoT()
-                case 2:
-                    self.eat()
-                case 3:
-                    self.go_work()
+# print()
+# file_name = 'byron_magic'
+# file = open(file_name, mode='r', encoding='utf-8')
+# file_content = file.read(2)
+# pprint(file_content)
+# pprint(file.tell())
 
-class Wife(Human):
+# new_position = file.seek(0, io.SEEK_SET) #--> можно хранить значения в переменных
+# io.SEEK_SET --> начало файла
+# io.SEEK_CUR --> текущая позиция файла
+# io.SEEK_END --> конец файлв
+# file.seek(0, io.SEEK_SET)
+# file_content = file.read(2)
+# pprint(file_content)
+# pprint(file.tell())
 
-    def __init__(self, name, house):
-        super().__init__(house)
-        self.__name = name
+# file.seek(0, io.SEEK_CUR)
+# file_content = file.read(2)
+# pprint(file_content)
+# pprint(file.tell())
 
-    def __str__(self):
-        return super().__str__(name=self.__name)
-        
-    def eat(self):
-        fullness = randint(1, 30)
-        if super()._get_house_food() - fullness < 0:
-            print('{} не хватает еды'.format(self.__name))
-            super()._set_happiness(count_happiness=-2)
-            super()._set_fullness_after_other_act(fullness=10)
-        else:
-            super()._set_fullness_after_eat(name=self.__name, fullness=fullness)
-            super()._set_happiness(count_happiness=-2)
+# file.seek(1, io.SEEK_SET) #сместились на 1 символ назад от начала файла
+# file_content = file.read(2)
+# pprint(file_content)
+# pprint(file.tell())
 
-    def buy_products(self):
-        if super()._buy_products(name=self.__name, price=randint(30, 60)):
-            super()._set_happiness(count_happiness=-10)
-            super()._set_fullness_after_other_act(fullness=10)
-        else:
-            print('{} не хватило денег на продукты'.format(self.__name))
-            super()._set_fullness_after_other_act(fullness=10)
-            super()._set_happiness(count_happiness=-10)
+# file.seek(0, io.SEEK_CUR)
+# file_content = file.read(2)
+# pprint(file_content)
+# pprint(file.tell())
 
-    def buy_shuba(self):
-        if super()._buy_products(name=self.__name, price=150):
-            super()._set_happiness(count_happiness=60)
-            super()._set_fullness_after_other_act(fullness=10)
-        else:
-            print('{} не хватило денег на шубу'.format(self.__name))
-            super()._set_happiness(count_happiness=-10)
-            super()._set_fullness_after_other_act(fullness=10)
+# new_position = file.seek(0, io.SEEK_END)
+# file_content = file.read()
+# pprint(file_content)
+# pprint(file.tell())
+# file.close()
 
-    def do_out_in_home(self):
-        super()._set_house_ashed(name=self.__name)
-        super()._set_fullness_after_other_act(fullness=10)
-        super()._set_happiness(count_happiness=-20)
-        
-    def act(self):
-        if super()._get_fullness() <= 0 or super()._get_happiness() <= 0:
-            print('--'*10 + '{} умер!!!!'.format(self.__name))
-        elif super()._get_house_food() <= 60:
-            self.buy_products()
-        elif super()._get_happiness() <= 30:
-            self.buy_shuba()
-        elif super()._get_fullness() <= 30:
-            self.eat()
-        elif super()._get_house_ashed() >= 80:
-            self.do_out_in_home()
-        else:
-            act = randint(1, 3)
-            match act:
-                case 1:
-                    self.buy_products()
-                case 2:
-                    self.buy_shuba()
-                case 3:
-                    self.do_out_in_home()
-            pass
 
-if __name__ == '__main__':
-    home = House()
-    maks = Husband(name='Макс', house=home)
-    masha = Wife(name='Маша', house=home)
-    print()
-    print(maks)
-    print(masha)
-    print(home)
+# file.fluash()     #файл принудительно записывает весь буфер на диск, если вдруг что-то сломалось
 
-    year = 30
-    for day in range(1, 365 * year + 1):
-        print('-'*25 + str(day) + ' День' + str('-')*25)
-        maks.act()
-        masha.act()
-        home.set_ashed()
-        print(maks)
-        print(masha)
-        print(home)
-    
+
+# file_name = 'byron'
+# file = open(file_name, mode='r', encoding='utf-8')
+# for line in file:
+#     print(line, end='')
+# file.close()
+
+# file_name = 'byron'
+# file = open(file_name, mode='r', encoding='utf-8')
+# lines = file.readlines()
+# for line in lines:          # Минус такого подхода в том, что все прочитывается из памяти. Для маленьких файлов это простительно, быстрое управление
+#     print(line, end='')     # а для больших это минус. Может зависнусть
+# file.close()
+
+# print()
+# file_name = 'byron'
+# file = open(file_name, mode='r', encoding='utf-8')
+# for line in file:
+#     if 'друзья' in line:
+#         print('слово найдено в строке:', line)
+#         break
+# else:
+#     print('запрашиваемое слово не найденно')
+# file.close()
+
+
+# Надо следить, чтобы файл при выходе из программ был закрыт. Если не закроем, то потеряем данные.
+# print()
+# file_name = 'byron'
+# with open(file_name, mode='r', encoding='utf-8') as file:
+#     """
+#     Все что внутри выполняется, а как закончится, то закроет файл. Даже, если случится ошибка
+#     то он принудительно закроет файл
+#     """
+#     for line in file:
+#         print(line, end='')
+#     print('Файл закрыт? -', 'Да' if file.closed else 'Нет')
+# print('Файл закрыт? -', 'Да' if file.closed else 'Нет')
+
+
+# class InOutBlock:
+
+#     def __enter__(self):
+#         print('Входим в блок кода')
+
+#     def __exit__(self, exc_type, exc_val, exc_tb):
+#         print('Выходим из блока кода')
+
+# with InOutBlock() as file:
+#     print('Блок кода')
+
+# import os
+
+# path = '/home/exflashgame/Рабочий стол'
+# print('\n\n')
+# for dirpath, dirname, filename in os.walk(path):
+#     print(f'|{"Путь:" + dirpath:-<140}|')
+#     print(f'|{"Папки":-^140}|')
+#     for dir_name in dirname:
+#         print(f'{dirpath:90s}, {dir_name}')
+#     print(f'|{"Файлы":-^140}|')
+#     for file in filename:
+#         print(f'{dirpath:90s}, {file}')
+
+
+# path = os.path.normpath(path)                                     # приведет к нормальному пути к каждой Операционной Системе
+# full_dir_path = os.path.getctime(os.path.join(dirpath, file))     # выведет даты создания файлов или папок, а также сразу нормализует к каждой Операционной Системе
+# secs = os.path.getctime(full_dir_path)                            # Эпоха, какая-то, которая отображается в секундах, а мы хотим видеть привычный год, месяц, день и т.д.
+# file_time = time.gmtime(secs)                                     # https://docs.python.org/3/library/time.html#time.struct_time
+
+
+""" 
+Если нам нужно распоковать zip файл и достать нужный для нас файл (мы знаем точное его название)
+"""
+# import zipfile
+
+# zip_file_name = 'Название zip файла'
+# file_name = 'Название файла, которое ищем'
+# zfile = zipfile.ZipFile(zip_file_name, mode='r')
+# for filename in zfile.namelist():                   # перебор всех файлов в архиве
+#     if file_name == filename:                       # Если название файла совпала с названием файла в архиве
+#         zfile.extract(filename)                     # тогда распакуем в этуже дерикторию 
+
+value = 'text'
+print(f'{0}', *value)

@@ -749,3 +749,30 @@ elif response.status_code == 404:
 # for filename in zfile.namelist():                   # перебор всех файлов в архиве
 #     if file_name == filename:                       # Если название файла совпала с названием файла в архиве
 #         zfile.extract(filename)                     # тогда распакуем в этуже дерикторию 
+
+
+# def fun():
+#     while True:
+#         try:
+#             a = int(input())
+#             a = 10 / a
+#             break
+#         except ZeroDivisionError as Z:
+#             print(f'Деление на ноль {Z}')
+
+# fun()
+
+
+# try:
+#     10 / 0
+#     print('Деление успешно')
+# except ZeroDivisionError:
+#     print('Деление на ноль')
+# except NameError:
+#     print('Неизвестная переменная')
+# else:
+#     print('Ошибок нет')
+# finally:
+#     print('Пока')
+
+

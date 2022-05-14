@@ -1,0 +1,10 @@
+digraph "classes_yourpackage" {
+rankdir=BT
+charset="utf-8"
+"laba5.Lerning" [color="black", fontcolor="black", label="{Lerning|\l|check_FIO(FIRST_SYMBOL)\lget_all()\lset_all(spisok)\l}", shape="record", style="solid"];
+"laba5.Main" [color="black", fontcolor="black", label="{Main|END_LIMIT_ARF_SCORE : float\lFIRST_SYMBOL : str\lNUMBER_STUDENT_TICKET : int\lSTART_LIMIT_ARF_SCORE : float\lact : int\lschool_boy\lschool_boys : list\lstudent\lstudents : list\l|}", shape="record", style="solid"];
+"laba5.SchoolBoy" [color="black", fontcolor="black", label="{SchoolBoy|\l|compareTo(START_LIMIT_ARF_SCORE, END_LIMIT_ARF_SCORE)\lsort(other_object)\l}", shape="record", style="solid"];
+"laba5.Student" [color="black", fontcolor="black", label="{Student|\l|compareTo(act, FIRST_SYMBOL, NUMBER_STUDENT_TICKET)\lsort(other_object)\l}", shape="record", style="solid"];
+"laba5.SchoolBoy" -> "laba5.Lerning" [arrowhead="empty", arrowtail="none"];
+"laba5.Student" -> "laba5.Lerning" [arrowhead="empty", arrowtail="none"];
+}

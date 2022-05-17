@@ -776,3 +776,50 @@ elif response.status_code == 404:
 #     print('Пока')
 
 
+# import time
+
+# def time_run_programms(func, n):
+#     start_time = time.time()
+#     result = func(n)
+#     end_time = time.time() - start_time
+#     print(round(end_time, 5))
+#     return result
+
+# def fibonachi_v1(n):
+#     a, b = 0, 1
+#     for _ in range(n):
+#         print(a, end=' ')
+#         a, b = b, a + b
+#     print()
+
+# fibo = time_run_programms(func=fibonachi_v1, n=10)
+
+
+# import time
+
+# def time_run_programms(func):
+#     def surrogate(n):
+#         start_time = time.time()
+#         func(n)
+#         print(round(time.time() - start_time, 5))
+#     return surrogate
+
+# def fibonachi_v1(n):
+#     a, b = 0, 1
+#     for _ in range(n):
+#         print(a, end=' ')
+#         a, b = b, a + b
+#     print()
+
+# time_run = time_run_programms(fibonachi_v1)
+# time_run(10)
+
+
+# def fibonachi_v2(n):
+#     a, b = 0, 1
+#     for _ in range(n):
+#         yield a
+#         a, b = b, a + b
+
+# for value in fibonachi_v2(10):
+#     print(value, end=' ')

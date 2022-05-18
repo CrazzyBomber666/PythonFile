@@ -776,3 +776,139 @@ elif response.status_code == 404:
 #     print('Пока')
 
 
+# import time
+
+# def time_run_programms(func, n):
+#     start_time = time.time()
+#     result = func(n)
+#     end_time = time.time() - start_time
+#     print(round(end_time, 5))
+#     return result
+
+# def fibonachi_v1(n):
+#     a, b = 0, 1
+#     for _ in range(n):
+#         print(a, end=' ')
+#         a, b = b, a + b
+#     print()
+
+# fibo = time_run_programms(func=fibonachi_v1, n=10)
+
+
+# import time
+
+# def time_run_programms(func):
+#     def surrogate(n):
+#         start_time = time.time()
+#         func(n)
+#         print(round(time.time() - start_time, 5))
+#     return surrogate
+
+# def fibonachi_v1(n):
+#     a, b = 0, 1
+#     for _ in range(n):
+#         print(a, end=' ')
+#         a, b = b, a + b
+#     print()
+
+# time_run = time_run_programms(fibonachi_v1)
+# time_run(10)
+
+
+# def fibonachi_v2(n):
+#     a, b = 0, 1
+#     for _ in range(n):
+#         yield a
+#         a, b = b, a + b
+
+# for value in fibonachi_v2(10):
+#     print(value, end=' ')
+
+
+"""
+Разок проскочила лямбда с 0,001, но что первым, что вторым способом равно 0.
+Любое присвоение увеличивает время выполнения кода.
+Надо стараться, как можно меньше присваивать, но в меру.
+"""
+# from collections import defaultdict
+# import time
+
+# def time_run(fun):
+#     def sur(spisok_product):
+#         start_time = time.time()
+#         result = fun(spisok_product)
+#         end_time = time.time()
+#         print('\nВремя выполнения:', end_time - start_time)#round(end_time - start_time, 40))
+#         return result
+#     return sur
+
+# def create_dict(spisok_product):
+#     dict_spisok_product = {}
+#     for name, value in spisok_product:
+#         if name in dict_spisok_product:
+#             dict_spisok_product[name] += value
+#         else:
+#             dict_spisok_product[name] = value
+#     return dict_spisok_product
+
+# def create_dict(spisok_product):
+#     dict_spisok_product = defaultdict(int) # defaultdict(int) or defaultdict(lambda: 0), defaultdict(lambda: []) or defaultdict(list)
+#     for name, value in spisok_product:
+#         dict_spisok_product[name] += value    #dict_spisok_product[name] += value or dict_spisok_product[name].append(value) {'Спички': [12, 15, ...]}
+#     return dict_spisok_product
+
+# spisok_product =[
+#     ['Спички', 12],
+#     ['Соль', 34],
+#     ['Крупа', 56],
+#     ['Молоко', 78],
+#     ['Ананас', 90],
+#     ['Ягода', 100],
+#     ['Клубника', 12],
+#     ['Малина', 34],
+#     ['Абрикос', 56],
+#     ['Яблоко', 78],
+#     ['Мука', 90],
+#     ['Чипсы', 100],
+#     ['Помидоры', 12],
+#     ['Яйца', 34],
+#     ['Сыр', 56],
+#     ['Шоколад', 78],
+#     ['Хлеб', 90]
+# ]
+
+# time_run_create_dict = time_run(fun=create_dict)
+# result = time_run_create_dict(spisok_product=spisok_product)
+# print(result, '\n')
+
+
+"""
+Также можно сортировать словарь в том порядке, как были добавлены ключи и значений, то есть
+dict_pet['Таракан'] = 'Федя'
+dict_pet['Кот'] = 'Мурзик'
+и во время вывода словаря покажет в том же порядке
+"""
+
+# from collections import OrderedDict
+
+# dict_pet = OrderedDict()
+# dict_pet = {}
+# dict_pet['Котик'] = 'Васька'
+# dict_pet['Таракан'] = 'Федя'
+# dict_pet['Кот'] = 'Мурзик'
+# for name, value in dict_pet.items():
+#     print(name, value)
+
+
+""" 
+Полезная библиотека reduce
+Можно не вводить дополнительные переменные суммы, произведения и т.д.
+"""
+# from functools import reduce
+# from random import randint
+
+# Numbers = []
+# for _ in range(5):
+#     Numbers.append(randint(0, 9))
+# print(Numbers)
+# print(reduce(lambda x, y: x + y, Numbers))

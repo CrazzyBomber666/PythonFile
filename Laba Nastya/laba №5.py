@@ -45,11 +45,6 @@ class CounterfoilForHotWaterSupply(Counterfoil):
         if self.__wasted_water < max:
             return print(self.__str__())
 
-def print_screen(objects, title):
-    print('\n' + title)
-    for object in objects:
-        print(object)
-         
 def print_on_screen(objects, title, END_LIMIT_SUMMA=None):
     print(f'\n{title}') if objects != [] else print('', end='')
     if END_LIMIT_SUMMA is None:
@@ -74,11 +69,11 @@ class main:
         counterfoil_for_electrical_energys.append(CounterfoilForElectricalEnergy(input('Дата оплаты: '), float(input('Сумма оплаты: ')), wasted_electical_energy=int(input('Потрачено электроэнергии: '))))
     for _ in range(count_counterfoil_for_hot_water_supply):
         counterfoil_for_hot_water_supplys.append(CounterfoilForHotWaterSupply(input('Дата оплаты: '), float(input('Сумма оплаты: ')), wasted_water=int(input('Потрачено воды: '))))
-    print_screen(objects=counterfoil_for_electrical_energys, title='Квитанции за электроэнергию')
-    print_screen(objects=counterfoil_for_hot_water_supplys, title='Квитанции за горячее водоснабжение')
+    print_on_screen(objects=counterfoil_for_electrical_energys, title='Квитанции за электроэнергию')
+    print_on_screen(objects=counterfoil_for_hot_water_supplys, title='Квитанции за горячее водоснабжение')
     counterfoil_for_electrical_energys.sort()
     counterfoil_for_hot_water_supplys.sort()
     print_on_screen(objects=counterfoil_for_electrical_energys, title='Отсортированные объекты "Квитанции за электроэнергию" по датам')
     print_on_screen(objects=counterfoil_for_hot_water_supplys, title='Отсортированные объекты "Квитанции за горячее водоснабжение" по суммам')
     print_on_screen(objects=counterfoil_for_electrical_energys, title=f'Перечень объектов "Квитанции за электроэнергию" сумма которых не более {END_LIMIT_SUMMA} руб.', END_LIMIT_SUMMA=END_LIMIT_SUMMA)
-    print_on_screen_limit_max(objects=counterfoil_for_hot_water_supplys, title=f'Перечень объектов "Квитанции за горячее водоснабжение" по суммам')
+    print_on_screen_limit_max(objects=counterfoil_for_hot_water_supplys, title='Перечень объектов "Квитанции за горячее водоснабжение" не является максимальным')

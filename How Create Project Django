@@ -5,3 +5,63 @@
 
 Запуск сервера команда
     python manage.py runserver
+
+Подняться вверх                     /cd ИмяПапки
+Спуститься вниз на один уровень     /cd -
+
+Установка и инициализация сервера postgresql немного отличаются по сравнению с другими пакетами и другими дистрибутивами Linux. 
+Этот документ направлен на обобщение основных этапов установки, соответствующих точечным выпускам Fedora Linux.
+
+    sudo dnf install postgresql-server postgresql-contrib
+
+Сервер postgresql не работает и по умолчанию отключен. Чтобы установить его для запуска при загрузке, запустите:
+
+    sudo systemctl enable postgresql
+
+База данных должна быть заполнена исходными данными после установки. Инициализация базы данных может быть выполнена с помощью следующей команды. 
+Создает файлы конфигурации postgresql.conf и pg_hba.conf
+
+    sudo postgresql-setup --initdb --unit postgresql
+
+Чтобы запустить сервер postgresql вручную, запустите
+
+    sudo systemctl start postgresql
+
+Входим в учетную запись postgres. Она создается автоматически, после установки 
+    
+    sudo -i -u postgres
+
+Затем команду psql. Чтобы использовать язык sql
+    
+    psql
+
+Команда \l выведит список созданных таблиц
+
+    \l
+
+Чтобы изменить пароль суперпользователю надо вести команду
+
+    \du
+               NameUser               'Любой пароль'
+    ALTER USER postgres WITH PASSWORD 'TelegramParsing';
+
+С Базой данной надо работать не от суперпользователя.
+Создам нового пользователя
+
+    CREATE USER TelegramParsing WITH PASSWORD 'TelegramParsing';
+
+Дадим ему права на создание БД
+
+    ALTER USER TelegramParsing WITH CREATEDB;
+
+Чтобы выйти из языка psql надо вести команду
+
+    \q
+
+Чтобы отключится от Базы данных вести команду
+
+    exit
+
+Если пишет Сбой проверки подлинности, то 
+
+    sudo passwd postgres

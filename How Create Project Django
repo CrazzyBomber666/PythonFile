@@ -1,0 +1,7 @@
+Для windows команда 
+    python -m django startproject TelegramParsing
+Для linux команда
+    django-admin startproject mysite
+
+Запуск сервера команда
+    python manage.py runserver

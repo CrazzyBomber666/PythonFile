@@ -76,10 +76,21 @@ WSGI_APPLICATION = 'TelegramParsing.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',         # Название таблицы
+        'USER': 'Parsing',         # Доступ к серверу (логин пользователя)
+        'PASSWORD': 'Parsing',  # Пароль пользователя
+        'HOST': '127.0.0.1',        # Хост (сайт, ip, url) к БД
+        'PORT': '5432',             # Номер порта
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 
 # Password validation

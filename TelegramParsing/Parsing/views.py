@@ -1,8 +1,20 @@
 from django.shortcuts import render
 
 # Create your views here.
-def index(request, process=None):
+class Process:
+
+    def __init__(self, process):
+        self.process = process
+
+    def input_text(self, value):
+        self.process.communicate(input=value)
+
+def index(request):
     print('перешел')
+    import subprocess
+    program = ["python", r"C:\Users\EXCLUSIVE\Desktop\Untitled-1.py"]
+    fun = subprocess.Popen(program, stdin=subprocess.PIPE, encoding='utf-8')
+    process = Process(process=fun)
     # setting = request.GET['settings']
     if request.GET != {}:
         a = list(request.GET.keys())
@@ -10,13 +22,11 @@ def index(request, process=None):
             if request.GET['settings'].lower() == 'start':
                 print('Я попал на старт')
                 import subprocess
-                process={'a':'f'}
-                # program = ["python", "pars.py"]
-                # process = subprocess.Popen(program)
-                # request.session['process'] = process
-                # subprocess.call(["python", "pars.py"])
+                program = ["python", r"C:\Users\EXCLUSIVE\Desktop\Untitled-1.py"]
+                # process = Process(subprocess.Popen(program))
+                # program = subprocess.Popen(program)
+
         elif a[0] == 'SMS':
-            print(process)
-            print('Я попал на смс', request)
-            # process.communicate(input=request.GET['SMS'])
-    return render(request=request, template_name='Parsing/WorkParsing.html', context=process)
+            print('Я попал на смс', request.GET['SMS'])
+            process.input_text(value=request.GET['SMS'])
+    return render(request=request, template_name='Parsing/WorkParsing.html')

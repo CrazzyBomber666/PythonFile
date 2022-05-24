@@ -65,3 +65,13 @@
 Если пишет Сбой проверки подлинности, то 
 
     sudo passwd postgres
+
+Чтобы собрать все папки static, необходимо вести команду
+
+    python manage.py collectstatic
+
+Но с начала надо определить static
+STATIC_URL, STATIC_ROOT, STATICFILES_DIRS
+
+Если нужно перейти по ссылке в html, то
+    href="{% url 'Login' %}"

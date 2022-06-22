@@ -1,0 +1,23 @@
+{% extends 'Main/shablon.html' %}
+{% load static %}
+
+{% block path %}<link type="text/css" href="{% static 'Main/css/Login.css' %}" rel="stylesheet">{% endblock %}
+
+{% block content %}<h1>Telegram</h1>
+<a href="{% url 'Quit' %}">Выйти с учетной записи</a>
+<form method="get" action="{% url 'Telegram' %}">
+    <p>Запустить процесс парсинга <button name="START" value="Start" type="submit">Запуск</button></p>
+</form>
+<form method="get" action="{% url 'Telegram' %}">
+    <p>{{ number_phone_form }}<button id="Number_phone" value="0" type="submit">Отправить</button></p>
+</form>
+<form method="get" action="{% url 'Telegram' %}">
+    <p>{{ sms_form }}<button id="SMS_code" value="0" type="submit">Отправить</button></p>
+</form>
+<form method="get" action="{% url 'Telegram' %}">
+    <p>{{ password_form }}<button id="Password" value="0" type="submit">Отправить</button></p>
+</form>
+<form method="get" action="{% url 'Telegram' %}">
+    <p>{{ name_channel_form }}<button id="Name_channel" value="0" type="submit">Отправить</button></p>
+</form>
+{% endblock %}

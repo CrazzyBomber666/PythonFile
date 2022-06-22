@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Login.apps.LoginConfig',
+    'Main.apps.MainConfig',
 ]
 
 MIDDLEWARE = [
@@ -48,7 +48,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'django_auto_logout.middleware.auto_logout',
 ]
+
+SESSION_COOKIE_AGE = 60*10
+SESSION_SAVE_EVERY_REQUEST = True
+
+# LOGIN_REDIRECT_URL =  '/'
+
+# AUTO_LOGOUT = {'IDLE_TIME': 600, 'REDIRECT_TO_LOGIN_IMMEDIATELY': True,}
 
 ROOT_URLCONF = 'TelegramParsingNewVersion.urls'
 
@@ -121,11 +129,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-# STATIC_ROOT = "/var/www/example.com/static/"
-# STATICFILES_DIRS = [
-#     BASE_DIR / "static",
-#     '/var/www/static/',
-# ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
